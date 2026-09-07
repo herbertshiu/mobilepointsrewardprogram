@@ -1285,6 +1285,12 @@ a {
   gap: 1.5rem;
 }
 
+.depart__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .depart h2 {
   margin: 0.35rem 0 0.5rem;
   font-family: var(--display);
@@ -1491,6 +1497,151 @@ a {
 
 .entry__next p {
   margin: 0 0 0.85rem;
+}
+
+/* Soft comparison chat + memo cards */
+.entry__inner--wide {
+  width: min(48rem, calc(100% - 2rem));
+}
+
+.chat {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.chat__row {
+  max-width: 36rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 0.35rem;
+  border: 1px solid var(--line);
+}
+
+.chat__row--q {
+  justify-self: start;
+  background: var(--sand-deep);
+  border-left: 3px solid #8a939c;
+}
+
+.chat__row--a {
+  justify-self: end;
+  background: #fffcf7;
+  border-left: 3px solid var(--sea);
+  box-shadow: 0 8px 20px rgba(28, 40, 48, 0.05);
+}
+
+.chat__label {
+  margin: 0 0 0.35rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.chat__row p:last-child {
+  margin: 0;
+  color: #2a3840;
+}
+
+.chat__row a {
+  color: var(--sea);
+  font-weight: 600;
+  text-underline-offset: 0.15em;
+}
+
+.memo-stack {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.pick__card {
+  background: #fffcf7;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  border-left: 4px solid #8a939c;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.pick__card--focus {
+  border: 2px solid var(--sea);
+  border-left-width: 6px;
+  box-shadow: 0 16px 36px rgba(42, 111, 151, 0.14);
+  background: linear-gradient(180deg, #e8f2f8 0%, #fffcf7 40%);
+  padding: 1.35rem 1.35rem 1.4rem;
+}
+
+.pick__tag {
+  margin: 0 0 0.45rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.pick__card--focus .pick__tag {
+  color: var(--sea);
+}
+
+.pick__vendor {
+  margin: 0 0 0.55rem !important;
+  font-family: var(--display);
+  font-size: 1.35rem !important;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink) !important;
+}
+
+.pick__vendor a {
+  color: var(--sea);
+  text-decoration: none;
+}
+
+.pick__vendor a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.pick__card h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.pick__card > p {
+  margin: 0 0 0.7rem;
+  font-size: 0.92rem;
+  color: #3d4a52;
+}
+
+.pick__card a {
+  color: var(--sea);
+  font-weight: 600;
+  text-underline-offset: 0.15em;
+}
+
+.pick__card ul {
+  margin: 0;
+  padding-left: 1.05rem;
+  font-size: 0.88rem;
+  color: #3d4a52;
+}
+
+.pick__card li + li {
+  margin-top: 0.25rem;
+}
+
+.pick__cta {
+  margin: 0.9rem 0 0 !important;
+  font-size: 0.92rem !important;
+}
+
+.pick__cta a {
+  font-weight: 700;
 }
 
 .foot {
