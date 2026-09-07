@@ -1499,149 +1499,235 @@ a {
   margin: 0 0 0.85rem;
 }
 
-/* Soft comparison chat + memo cards */
-.entry__inner--wide {
-  width: min(48rem, calc(100% - 2rem));
+/* Soft comparison — travel / gate style (domain 4 only) */
+.gate-hero {
+  padding: 3.5rem 0 2rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 15%, rgba(42, 111, 151, 0.12), transparent 55%),
+    var(--sand-deep);
+  border-bottom: 1px solid var(--line);
 }
 
-.chat {
+.gate-hero h1 {
+  margin: 0.35rem 0 0.55rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.45rem);
+  line-height: 1.25;
+}
+
+.gate-hero__lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 40rem;
+  font-size: 1rem;
+}
+
+.briefing {
+  padding: 4.5rem 0;
+  background: #fff;
+}
+
+.briefing__list {
   display: grid;
-  gap: 0.85rem;
-  margin: 1.5rem 0 2rem;
+  gap: 0.65rem;
 }
 
-.chat__row {
-  max-width: 36rem;
-  padding: 0.95rem 1.1rem;
-  border-radius: 0.35rem;
+.briefing__item {
+  background: var(--sand);
   border: 1px solid var(--line);
+  border-radius: 0.35rem;
 }
 
-.chat__row--q {
-  justify-self: start;
-  background: var(--sand-deep);
-  border-left: 3px solid #8a939c;
-}
-
-.chat__row--a {
-  justify-self: end;
+.briefing__item[open] {
+  border-color: var(--sea);
   background: #fffcf7;
-  border-left: 3px solid var(--sea);
-  box-shadow: 0 8px 20px rgba(28, 40, 48, 0.05);
+  box-shadow: 0 8px 24px rgba(42, 111, 151, 0.08);
 }
 
-.chat__label {
-  margin: 0 0 0.35rem;
+.briefing__item summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  padding: 1.05rem 1.15rem;
+  font-family: var(--display);
+  font-size: 1.08rem;
+}
+
+.briefing__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.briefing__item summary::after {
+  content: "GATE";
+  float: right;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--sea);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  margin-top: 0.35rem;
+}
+
+.briefing__item[open] summary::after {
+  content: "OPEN";
+  color: var(--terra);
+}
+
+.briefing__item p {
+  margin: 0;
+  padding: 0 1.15rem 1.15rem;
   color: var(--muted);
 }
 
-.chat__row p:last-child {
-  margin: 0;
-  color: #2a3840;
-}
-
-.chat__row a {
+.briefing__item a {
   color: var(--sea);
-  font-weight: 600;
-  text-underline-offset: 0.15em;
+  font-weight: 700;
 }
 
-.memo-stack {
+.flights {
+  padding: 4.5rem 0 5rem;
+  background: var(--sand);
+}
+
+.flights__rail {
   display: grid;
   gap: 1rem;
-  margin: 1.25rem 0 2rem;
 }
 
-.pick__card {
+@media (min-width: 880px) {
+  .flights__rail {
+    grid-template-columns: 1.15fr 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
   background: #fffcf7;
   border: 1px solid var(--line);
-  border-radius: 0.35rem;
-  border-left: 4px solid #8a939c;
-  padding: 1.15rem 1.2rem 1.25rem;
+  border-radius: 0.5rem;
+  padding: 1.2rem 1.25rem 1.3rem;
+  box-shadow: 0 10px 28px rgba(28, 40, 48, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
-.pick__card--focus {
-  border: 2px solid var(--sea);
-  border-left-width: 6px;
-  box-shadow: 0 16px 36px rgba(42, 111, 151, 0.14);
-  background: linear-gradient(180deg, #e8f2f8 0%, #fffcf7 40%);
-  padding: 1.35rem 1.35rem 1.4rem;
+.ticket::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--line);
 }
 
-.pick__tag {
-  margin: 0 0 0.45rem;
+.ticket--focus {
+  border-color: var(--sea);
+  box-shadow: 0 16px 40px rgba(42, 111, 151, 0.16);
+  background: linear-gradient(180deg, #e8f2f8 0%, #fffcf7 32%);
+}
+
+.ticket--focus::before {
+  height: 4px;
+  background: linear-gradient(90deg, var(--sea), var(--terra));
+}
+
+.ticket__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.ticket__gate {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.72rem;
-  letter-spacing: 0.06em;
   font-weight: 600;
-  color: var(--muted);
-}
-
-.pick__card--focus .pick__tag {
+  letter-spacing: 0.1em;
   color: var(--sea);
 }
 
-.pick__vendor {
-  margin: 0 0 0.55rem !important;
-  font-family: var(--display);
-  font-size: 1.35rem !important;
+.ticket__status {
+  font-size: 0.68rem;
   font-weight: 700;
-  line-height: 1.2;
-  color: var(--ink) !important;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(42, 111, 151, 0.14);
+  color: var(--sea-deep);
 }
 
-.pick__vendor a {
+.ticket__status--alt {
+  background: rgba(28, 40, 48, 0.06);
+  color: var(--muted);
+}
+
+.ticket__airline {
+  margin: 0 0 0.4rem;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ticket__airline a {
   color: var(--sea);
   text-decoration: none;
 }
 
-.pick__vendor a:hover {
+.ticket__airline a:hover {
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
 
-.pick__card h3 {
+.ticket h3 {
   margin: 0 0 0.55rem;
   font-family: var(--display);
   font-size: 1.05rem;
+  font-weight: 700;
   line-height: 1.35;
-  color: var(--ink);
 }
 
-.pick__card > p {
+.ticket > p {
   margin: 0 0 0.7rem;
+  color: var(--muted);
   font-size: 0.92rem;
-  color: #3d4a52;
 }
 
-.pick__card a {
+.ticket a {
   color: var(--sea);
   font-weight: 600;
-  text-underline-offset: 0.15em;
 }
 
-.pick__card ul {
-  margin: 0;
+.ticket ul {
+  margin: 0 0 1rem;
   padding-left: 1.05rem;
-  font-size: 0.88rem;
   color: #3d4a52;
+  font-size: 0.88rem;
+  flex: 1;
 }
 
-.pick__card li + li {
+.ticket li + li {
   margin-top: 0.25rem;
 }
 
-.pick__cta {
-  margin: 0.9rem 0 0 !important;
-  font-size: 0.92rem !important;
+.ticket__cta {
+  display: inline-block;
+  margin-top: auto;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--sea) !important;
 }
 
-.pick__cta a {
-  font-weight: 700;
+.ticket__cta:hover {
+  color: var(--sea-deep) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .foot {
